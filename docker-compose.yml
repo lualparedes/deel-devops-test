@@ -1,12 +1,14 @@
 version: "3.3"
 
 services:
-  vite:
-    image: lualparedes/deel-frontend-test:latest
-    ports:
-      - "5173:5173"
-
   express:
     image: lualparedes/deel-backend-test:latest
     ports:
       - "3000:3000"
+
+  vite:
+    image: lualparedes/deel-frontend-test:latest
+    ports:
+      - "5173:5173"
+    depends_on:
+      - express
